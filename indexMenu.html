@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="pinkFavicon.png"> 
-<link rel="stylesheet" href="styles.css" />
+<link rel="icon" type="image/png" href="greyFavicon.png"> 
+<link rel="stylesheet" href="stylesMenu.css" />
   </head>
   <body>
     <div class="container">
@@ -17,10 +17,9 @@
         <img src="websiteBackground.webp" alt="Delicious pancakes" onerror="this.onerror=null; this.src='backUpBackground.jpeg'">
         <div class="price-banner"><span id="totalPrice">5 €</span></div>
       </div>
-
       <div class="form-container">
         <h1>Customize Your <span class="highlight">Pancake</span></h1>
-
+        
         <form id="pancakeForm">
           <label for="customerName"><h3>Your Name:</h3></label>
           <input type="text" id="customerName" placeholder="Enter your name" />
@@ -128,10 +127,11 @@
           <h3>Order Summary</h3>
           <p id="summaryText">Your order details will appear here.</p>
         </div>
-
         <button type="button" id="orderButton">Order</button>
+      
+        <nav id="menuNav" onclick="location.href='indexManagment.html'">Orders management</nav>
       </div>
     </div>
-    <script src="main.js"></script>
+    <script src="mainMenu.js"></script>
   </body>
 </html>

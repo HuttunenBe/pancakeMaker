@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Pancake Order Management System For Staff</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Boldonse&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="greyFavicon.png"> 
+    <link rel="stylesheet" href="stylesManagement.css" />
+  </head>
+  <head>
+  <body>
+    <section id="mainSection">
+      <div id="container">
+        <h1>Order Management</h1>
+        <div id="containerSearchnSort">
+          <input
+            type="search"
+            id="searchField"
+            placeholder="Search by order ID..."
+          />
+        
+          <select id="filterStatus">
+            <option value="all">All</option>
+            <option value="waiting">Waiting</option>
+            <option value="ready">Ready</option>
+            <option value="delivered">Delivered</option>
+          </select>
+          <button onclick="location.href='indexMenu.html'">Menu</button>
+        </div>
+      </div>
+    </section>
+    <div id="orderDiv">
+      <div class="controls"></div>
+    </div>
+    <script src="mainManagment.js"></script>
+  </body>
+</html>

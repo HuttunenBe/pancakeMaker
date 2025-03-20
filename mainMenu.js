@@ -10,7 +10,6 @@ const buttonOrderNow = document.querySelector("#orderButton");
 const summaryText = document.querySelector("#orderSummary");
 const customerName = document.querySelector("#customerName");
 
-
 const changeHandler = () => {
   const basePrice = parseFloat(
     document.getElementById("type").selectedOptions[0].dataset.price
@@ -58,8 +57,6 @@ const changeHandler = () => {
   };
 };
 
-pancakeForm.addEventListener("change", changeHandler);
-
 buttonSeeOrder.addEventListener("click", () => {
   const {
     basePrice,
@@ -84,7 +81,7 @@ buttonSeeOrder.addEventListener("click", () => {
   Extras: ${extrasText} <br>
   Delivery: ${deliveryText} <br><br>
   Total price: ${totalPrice} €
-`
+`;
 });
 
 buttonOrderNow.addEventListener("click", () => {
