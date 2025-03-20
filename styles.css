@@ -177,7 +177,7 @@ input [type="radio"] {
   }
 
   body {
-    background-image: url("pancakeBackground.webp");
+    background-image: url("websiteBackground.webp"), url("backUpBackground.jpeg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
