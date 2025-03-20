@@ -1,140 +1,125 @@
-const orderListContainer = document.querySelector("#orderDiv");
-const orderStatus = document.querySelector("#filterStatus");
-const searchInput = document.querySelector("#search");
+const pancakeType = document.querySelector("#type");
+const toppings = document.querySelectorAll(".topping");
+const extras = document.querySelectorAll(".extra");
+const totalPriceDisplay = document.querySelector("#totalPriceDisplay");
+const totalPriceBanner = document.querySelector("#totalPrice");
+const pancakeForm = document.querySelector("#pancakeForm");
+const deliveryCost = document.querySelectorAll(".delivery");
+const buttonSeeOrder = document.querySelector("#seeOrder");
+const buttonOrderNow = document.querySelector("#orderButton");
+const summaryText = document.querySelector("#orderSummary");
+const customerName = document.querySelector("#customerName");
 
-const orders = JSON.parse(localStorage.getItem("ordersNew")) || [];
-const addNewOrder = (
-  customerName,
-  pancakeType,
-  selectedToppings,
-  selectedExtras,
-  selectedDelivery,
-  totalPrice
-) => {
-  const newOrder = {
-    id: id,
-    customerName: customerName,
-    selectedPancake: pancakeType,
-    toppings: selectedToppings,
-    extras: selectedExtras,
-    deliveryMethod: selectedDelivery,
-    totalPrice: totalPrice,
-    status: "waiting",
-  };
-
-  orders.push(newOrder);
-  localStorage.setItem("ordersNew", JSON.stringify(orders));
-  displayOrders(orders);
-};
-
-const getEmoji = (status) => {
-  if (status === "waiting") {
-    return "🟡";
-  } else if (status === "ready") {
-    return "🔵";
-  } else if (status === "delivered") {
-    return "🟢";
-  }
-};
-
-const sortOrders = () => {
-  orders.sort((a, b) => b.status.localeCompare(a.status));
-  displayOrders(orders);
-};
-
-const displayOrders = (orders) => {
-  orderListContainer.innerHTML = "";
-  orders.forEach((order) => {
-    const orderEmoji = getEmoji(order.status);
-    orderListContainer.innerHTML += `
-      <div class="order" data-order-id="${order.id}">
-          <p>Order ID: ${order.id}</p>
-          <p>Customer Name: ${order.customerName}</p>
-          <p id="pancakeType">Pancake Type: ${order.selectedPancake}</p>
-          <p>Toppings: ${order.toppings.join(", ")}</p>
-          <p>Extras: ${order.extras.join(", ")}</p>
-          <p>Delivery Method: ${order.deliveryMethod}</p>
-          <p>Total Price: €${order.totalPrice}</p>
-          <p>Order Status: 
-              <select class="orderStatus" data-order-id="${order.id}">
-                  <option value="waiting" ${
-                    order.status === "waiting" ? "selected" : ""
-                  }>Waiting</option>
-                  <option value="ready" ${
-                    order.status === "ready" ? "selected" : ""
-                  }>Ready</option>
-                  <option value="delivered" ${
-                    order.status === "delivered" ? "selected" : ""
-                  }>Delivered</option>
-            </select>
-          </p>
-          <p>Status Emoji: ${orderEmoji}</p> 
-          <button class="deleteButton">Delete</button>
-      </div>
-    `;
-  });
-
-  const deleteButtons = document.querySelectorAll(".deleteButton");
-  deleteButtons.forEach((button) => {
-    button.addEventListener("click", deleteItem);
-  });
-};
-
-function deleteItem(event) {
-  const orderId = event.target.closest("div").dataset.orderId;
-  const index = orders.findIndex(
-    (order) => order.id == orderId && order.status === "delivered"
+const changeHandler = () => {
+  const basePrice = parseFloat(
+    document.getElementById("type").selectedOptions[0].dataset.price
   );
 
-  if (index !== -1) {
-    orders.splice(index, 1);
-    localStorage.setItem("ordersNew", JSON.stringify(orders));
-    displayOrders(orders);
-  }
-}
+  let selectedToppings = [];
+  let selectedExtras = [];
+  let selectedDelivery = [];
 
-const updateOrderStatus = (orderId, newStatus) => {
-  const orderToUpdate = orders.find((order) => order.id == orderId);
-  if (orderToUpdate) {
-    orderToUpdate.status = newStatus;
-    localStorage.setItem("ordersNew", JSON.stringify(orders));
-    displayOrders(orders);
-  }
+  let toppingsTotal = 0;
+  toppings.forEach((topping) => {
+    if (topping.checked) {
+      selectedToppings.push(topping.dataset.name);
+      toppingsTotal += parseFloat(topping.dataset.price);
+    }
+  });
+
+  let extrasTotal = 0;
+  extras.forEach((extra) => {
+    if (extra.checked) {
+      selectedExtras.push(extra.value);
+      extrasTotal += parseFloat(extra.dataset.price);
+    }
+  });
+
+  let deliveryTotal = 0;
+  deliveryCost.forEach((delivery) => {
+    if (delivery.checked) {
+      selectedDelivery.push(delivery.value);
+      deliveryTotal += parseFloat(delivery.dataset.price);
+    }
+  });
+
+  const totalPrice = basePrice + toppingsTotal + extrasTotal + deliveryTotal;
+
+  totalPriceDisplay.textContent = `${totalPrice} €`;
+  totalPriceBanner.textContent = `${totalPrice} €`;
+
+  return {
+    basePrice,
+    selectedToppings,
+    selectedExtras,
+    selectedDelivery,
+    totalPrice,
+  };
 };
 
-orderListContainer.addEventListener("change", (e) => {
-  if (e.target && e.target.classList.contains("orderStatus")) {
-    const orderId = e.target.closest("div").getAttribute("data-order-id");
-    const newStatus = e.target.value;
-    updateOrderStatus(orderId, newStatus);
+buttonSeeOrder.addEventListener("click", () => {
+  const {
+    basePrice,
+    selectedToppings,
+    selectedExtras,
+    selectedDelivery,
+    totalPrice,
+  } = changeHandler();
+
+  const toppingsText =
+    selectedToppings.length > 0 ? selectedToppings.join(", ") : "None";
+  const extrasText =
+    selectedExtras.length > 0 ? selectedExtras.join(", ") : "None";
+  const deliveryText =
+    selectedDelivery.length > 0 ? selectedDelivery.join(", ") : "None";
+
+  const customerOrderName = customerName.value.trim();
+
+  summaryText.innerHTML = `
+  You chose ${pancakeType.value} with the following options:<br><br>
+  Toppings: ${toppingsText} <br>
+  Extras: ${extrasText} <br>
+  Delivery: ${deliveryText} <br><br>
+  Total price: ${totalPrice} €
+`;
+});
+
+buttonOrderNow.addEventListener("click", () => {
+  const {
+    basePrice,
+    selectedToppings,
+    selectedExtras,
+    selectedDelivery,
+    totalPrice,
+  } = changeHandler();
+
+  const customerOrderName = customerName.value.trim();
+  if (customerOrderName == "") {
+    alert("Please input your name");
+  } else {
+    const newOrder = {
+      id: Date.now(),
+      customerName: customerOrderName,
+      selectedPancake: pancakeType.value,
+      toppings: selectedToppings,
+      extras: selectedExtras,
+      deliveryMethod: selectedDelivery,
+      totalPrice: totalPrice,
+      status: "waiting",
+    };
+
+    let orders = JSON.parse(localStorage.getItem("ordersNew")) || [];
+    orders.push(newOrder);
+    localStorage.setItem("ordersNew", JSON.stringify(orders));
+
+    alert("Thank you for your order!");
+
+    summaryText.textContent = "";
+    pancakeForm.reset();
+    totalPriceDisplay.textContent = "0 €";
+    totalPriceBanner.textContent = "0 €";
   }
 });
 
-const filterByStatus = () => {
-  const selectedType = orderStatus.value;
-  if (selectedType === "all") {
-    sortOrders();
-    displayOrders(orders);
-  } else {
-    const filteredOrders = orders.filter(
-      (order) => order.status === selectedType
-    );
-    displayOrders(filteredOrders);
-  }
-};
-
-const searchOrderbyID = () => {
-  const searchId = searchInput.value.trim();
-  const filteredOrders = orders.filter((order) =>
-    order.id.toString().includes(searchId)
-  );
-  displayOrders(filteredOrders);
-};
-
-window.onload = () => {
-  sortOrders();
-  displayOrders(orders);
-};
-
-orderStatus.addEventListener("change", filterByStatus);
-searchInput.addEventListener("input", searchOrderbyID);
+pancakeForm.addEventListener("change", changeHandler);
+filterType.addEventListener("change", filterByTypeAnimal);
