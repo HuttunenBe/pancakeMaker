@@ -6,14 +6,16 @@
 
 body {
   background-color: #274e46;
-  background-image: url("images/pancakeBackgroundLarge-min.webp"), url("images/pancakeBackupLarge-min.webp");
+  background-image: url("images/pancakeBackgroundLarge-min.webp"),
+    url("images/pancakeBackupLarge-min.webp");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "raleway", "poppins", 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
+  font-family: "raleway", "poppins", "Gill Sans", "Gill Sans MT", "Trebuchet MS",
+    sans-serif;
   color: #000000;
   scroll-behavior: smooth;
   line-height: 1.2;
