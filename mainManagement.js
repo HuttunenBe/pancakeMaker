@@ -1,6 +1,6 @@
 const orderListContainer = document.querySelector("#orderDiv");
 const orderStatus = document.querySelector("#filterStatus");
-const searchInput = document.querySelector("#search");
+const searchInput = document.querySelector("#searchField");
 
 const orders = JSON.parse(localStorage.getItem("ordersNew")) || [];
 const addNewOrder = (

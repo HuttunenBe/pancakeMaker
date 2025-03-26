@@ -6,14 +6,14 @@
 
 body {
   background-color: #274e46;
-  background-image: url("websiteBackground.webp"), url("backUpBackground.jpeg");
+  background-image: url("images/pancakeBackgroundLarge-min.webp"), url("images/pancakeBackupLarge-min.webp");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Raleway", "Boldonse", "Nunito", "Poppins", sans-serif;
+  font-family: "raleway", "poppins", 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
   color: #000000;
   scroll-behavior: smooth;
   line-height: 1.2;
@@ -185,6 +185,10 @@ button:hover {
 }
 
 @media (max-width: 1200px) {
+  body {
+    background-image: url("images/pancakeBackgroundMedium-min.webp"),
+      url("images/pancakeBackupMedium-min.webp");
+  }
   h1 {
     font-size: 2.5rem;
   }
@@ -203,6 +207,10 @@ button:hover {
 }
 
 @media (max-width: 768px) {
+  body {
+    background-image: url("images/pancakeBackgroundSmall-min.webp"),
+      url("images/pancakeBackupSmall-min.webp");
+  }
   h1 {
     font-size: 2rem;
   }

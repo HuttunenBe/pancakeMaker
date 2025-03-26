@@ -122,4 +122,3 @@ buttonOrderNow.addEventListener("click", () => {
 });
 
 pancakeForm.addEventListener("change", changeHandler);
-filterType.addEventListener("change", filterByTypeAnimal);
