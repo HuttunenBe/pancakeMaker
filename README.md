@@ -17,7 +17,7 @@ ____
 * Update order status between waiting, ready and delivered
 * Automatically sort orders by status (waiting first, delivered last)
 * Delete order by using a delete button
-- Dropdown menu for filtering orders by status
+*  Dropdown menu for filtering orders by status
 * Responsive design for different screen sizes
 
  ____
