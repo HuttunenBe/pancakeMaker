@@ -1,1 +1,45 @@
-<!doctypehtml><html lang=en><title>Pancake Order Management System For Staff</title><meta charset=UTF-8><meta content="width=device-width,initial-scale=1"name=viewport><link href=https://fonts.googleapis.com rel=preconnect><link href=https://fonts.gstatic.com rel=preconnect crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Raleway:wght@400;700&display=swap"rel=stylesheet><link href=greyFavicon.png rel=icon alt=favicon type=image/png><link href=stylesmanagement.css rel=stylesheet><section id=mainSection><div id=container><h1>Order Management</h1><div id=containerSearchnSort><label for=searchField></label> <input aria-label="Search field for entering order ID"id=searchField placeholder="Search by order ID..."type=search> <label for=filterStatus></label> <select aria-label="Filter orders by status"id=filterStatus><option value=all>All<option value=waiting>Waiting<option value=ready>Ready<option value=delivered>Delivered</select> <button aria-label="Navigate to Menu page"onclick='location.href="index.html"'>Menu</button></div></div></section><div id=orderDiv><div class=controls></div></div><script src=mainManagement.js></script>
+<!DOCTYPE html>
+<html lang="en">
+  <title>Pancake Order Management System For Staff</title>
+  <meta charset="UTF-8" />
+  <meta content="width=device-width,initial-scale=1" name="viewport" />
+  <link href=https://fonts.googleapis.com rel=preconnect> <link
+  href=https://fonts.gstatic.com rel=preconnect crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Raleway:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+  <link href=greyFavicon.png rel=icon alt=favicon type=image/png>
+  <link href="stylesmanagement.css" rel="stylesheet" />
+  <section id="mainSection">
+    <div id="container">
+      <h1>Order Management</h1>
+      <div id="containerSearchnSort">
+        <label for="searchField"></label>
+        <input
+          aria-label="Search field for entering order ID"
+          id="searchField"
+          placeholder="Search by order ID..."
+          type="search"
+        />
+        <label for="filterStatus"></label>
+        <select aria-label="Filter orders by status" id="filterStatus">
+          <option value="all">All</option>
+          <option value="waiting">Waiting</option>
+          <option value="ready">Ready</option>
+          <option value="delivered">Delivered</option>
+        </select>
+        <button
+          aria-label="Navigate to Menu page"
+          onclick='location.href="index.html"'
+        >
+          Menu
+        </button>
+      </div>
+    </div>
+  </section>
+  <div id="orderDiv">
+    <div class="controls"></div>
+  </div>
+  <script src="mainManagement.js"></script>
+</html>
