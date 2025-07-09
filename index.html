@@ -1,1 +1,140 @@
-<!doctypehtml><html lang=en><title>Delicious Pancakes Customized To Your Liking</title><meta charset=UTF-8><meta content="width=device-width,initial-scale=1"name=viewport><meta content="Customize your pancake"name=description><meta content="ie=edge"http-equiv=X-UA-Compatible><link href=https://fonts.googleapis.com rel=preconnect><link href=https://fonts.gstatic.com rel=preconnect crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&family=Raleway:wght@400&display=swap"rel=stylesheet><link href=greyFavicon.png rel=icon alt=favicon type=image/png><link href=styles.css rel=stylesheet><div class=container><div class=image-container><img alt="Pancake background"onerror='this.onerror=null,this.src="images/pancakeBackupLarge-min.webp"'src=images/pancakeBackgroundLarge-min.webp><div class=price-banner><span id=totalPrice>5 €</span></div></div><div class=form-container><h1>Customize Your <span class=highlight>Pancake</span></h1><form id=pancakeForm><label for=customerName><h2>Your Name:</h2></label> <input id=customerName placeholder="Enter your name"> <label for=type><h2>Choose your pancake type:</h2></label> <select id=type name=pancakeType><option data-price=5>Classic - 5€<option data-price=6>Chocolate - 6€<option data-price=7>Blueberry - 7€</select><h2>Select your toppings (1€ each):</h2><label aria-label="add nuts as topping"><input class=topping data-name=nuts data-price=1 type=checkbox value=nuts> Nuts</label> <label aria-label="add banana as topping"><input class=topping data-name=bananas data-price=1 type=checkbox value=bananas> Bananas</label> <label aria-label="add syrup as topping"><input class=topping data-name=syrup data-price=1 type=checkbox value=syrup> Syrup</label><h2>Add extras:</h2><label aria-label="add whipped cream as extra"><input class=extra data-name="whipped cream"data-price=2 type=checkbox value="whipped cream"> Whipped Cream - 2€</label> <label aria-label="add ice-cream as extra"><input class=extra data-name=ice-cream data-price=3 type=checkbox value=ice-cream> Ice Cream - 3€</label><h2>Choose delivery method:</h2><label aria-label="choose delivery method eat in"><input class=delivery data-name="Eat in"data-price=0 type=radio value="Eat in"name=delivery checked> Eat In</label> <label aria-label="choose delivery method pick up"><input class=delivery data-name="pick up"data-price=0 type=radio value="pick up"name=delivery> Pick Up</label> <label aria-label="choose delivery method delivery"><input class=delivery data-name=delivery data-price=5 type=radio value=delivery name=delivery> Delivery (+5€)</label><h2>Total Price: <span id=totalPriceDisplay>5 €</span></h2><button id=seeOrder type=button aria-label="See order summary">See Order</button></form><div id=orderSummary><h2>Order Summary</h2><p id=summaryText>Your order details will appear here.</div><button id=orderButton type=button>Order</button><footer><nav id=menuNav onclick='location.href="indexManagement.html"'>Orders management</nav></footer></div></div><script src=main.js></script>
+<!DOCTYPE html>
+<html lang="en">
+  <title>Delicious Pancakes Customized To Your Liking</title>
+  <meta charset="UTF-8" />
+  <meta content="width=device-width,initial-scale=1" name="viewport" />
+  <meta content="Customize your pancake" name="description" />
+  <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+  <link href=https://fonts.googleapis.com rel=preconnect> <link
+  href=https://fonts.gstatic.com rel=preconnect crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400&family=Raleway:wght@400&display=swap"
+    rel="stylesheet"
+  />
+  <link href=greyFavicon.png rel=icon alt=favicon type=image/png>
+  <link href="styles.css" rel="stylesheet" />
+  <div class="container">
+    <div class="image-container">
+      <img alt="Pancake background"
+      onerror='this.onerror=null,this.src="images/pancakeBackupLarge-min.webp"'
+      src=images/pancakeBackgroundLarge-min.webp>
+      <div class="price-banner"><span id="totalPrice">5 €</span></div>
+    </div>
+    <div class="form-container">
+      <h1>Customize Your <span class="highlight">Pancake</span></h1>
+      <form id="pancakeForm">
+        <label for="customerName"><h2>Your Name:</h2></label>
+        <input id="customerName" placeholder="Enter your name" />
+        <label for="type"><h2>Choose your pancake type:</h2></label>
+        <select id="type" name="pancakeType">
+          <option data-price="5">Classic - 5€</option>
+          <option data-price="6">Chocolate - 6€</option>
+          <option data-price="7">Blueberry - 7€</option>
+        </select>
+        <h2>Select your toppings (1€ each):</h2>
+        <label aria-label="add nuts as topping"
+          ><input
+            class="topping"
+            data-name="nuts"
+            data-price="1"
+            type="checkbox"
+            value="nuts"
+          />
+          Nuts</label
+        >
+        <label aria-label="add banana as topping"
+          ><input
+            class="topping"
+            data-name="bananas"
+            data-price="1"
+            type="checkbox"
+            value="bananas"
+          />
+          Bananas</label
+        >
+        <label aria-label="add syrup as topping"
+          ><input
+            class="topping"
+            data-name="syrup"
+            data-price="1"
+            type="checkbox"
+            value="syrup"
+          />
+          Syrup</label
+        >
+        <h2>Add extras:</h2>
+        <label aria-label="add whipped cream as extra"
+          ><input
+            class="extra"
+            data-name="whipped cream"
+            data-price="2"
+            type="checkbox"
+            value="whipped cream"
+          />
+          Whipped Cream - 2€</label
+        >
+        <label aria-label="add ice-cream as extra"
+          ><input
+            class="extra"
+            data-name="ice-cream"
+            data-price="3"
+            type="checkbox"
+            value="ice-cream"
+          />
+          Ice Cream - 3€</label
+        >
+        <h2>Choose delivery method:</h2>
+        <label aria-label="choose delivery method eat in"
+          ><input
+            class="delivery"
+            data-name="Eat in"
+            data-price="0"
+            type="radio"
+            value="Eat in"
+            name="delivery"
+            checked
+          />
+          Eat In</label
+        >
+        <label aria-label="choose delivery method pick up"
+          ><input
+            class="delivery"
+            data-name="pick up"
+            data-price="0"
+            type="radio"
+            value="pick up"
+            name="delivery"
+          />
+          Pick Up</label
+        >
+        <label aria-label="choose delivery method delivery"
+          ><input
+            class="delivery"
+            data-name="delivery"
+            data-price="5"
+            type="radio"
+            value="delivery"
+            name="delivery"
+          />
+          Delivery (+5€)</label
+        >
+        <h2>Total Price: <span id="totalPriceDisplay">5 €</span></h2>
+        <button id="seeOrder" type="button" aria-label="See order summary">
+          See Order
+        </button>
+      </form>
+      <div id="orderSummary">
+        <h2>Order Summary</h2>
+        <p id="summaryText">Your order details will appear here.</p>
+      </div>
+
+      <button id="orderButton" type="button">Order</button>
+      <footer>
+        <nav id="menuNav" onclick='location.href="indexManagement.html"'>
+          Orders management
+        </nav>
+      </footer>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</html>
