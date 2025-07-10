@@ -38,14 +38,9 @@ const changeHandler = () => {
     }
   });
   const totalPrice = basePrice + toppingsTotal + extrasTotal + deliveryTotal;
-  totalPriceDisplay.textContent = `$ {
-        totalPrice
-    }
-    €`;
-  totalPriceBanner.textContent = `$ {
-        totalPrice
-    }
-    €`;
+  totalPriceDisplay.textContent = `${totalPrice} €`;
+  totalPriceBanner.textContent = `${totalPrice} €`;
+
   return {
     basePrice,
     selectedToppings,
@@ -70,22 +65,13 @@ buttonSeeOrder.addEventListener("click", () => {
   const deliveryText =
     selectedDelivery.length > 0 ? selectedDelivery.join(", ") : "None";
   const customerOrderName = customerName.value.trim();
-  summaryText.innerHTML = ` You chose $ {
-        pancakeType.value
-    }
-    with the following options:<br><br> Toppings: $ {
-        toppingsText
-    }
-    <br> Extras: $ {
-        extrasText
-    }
-    <br> Delivery: $ {
-        deliveryText
-    }
-    <br><br> Total price: $ {
-        totalPrice
-    }
-    € `;
+  summaryText.innerHTML = `
+  You chose ${pancakeType.value} with the following options:<br><br>
+  Toppings: ${toppingsText} <br>
+  Extras: ${extrasText} <br>
+  Delivery: ${deliveryText} <br><br>
+  Total price: ${totalPrice} €
+`;
 });
 buttonOrderNow.addEventListener("click", () => {
   const {
