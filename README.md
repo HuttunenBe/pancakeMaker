@@ -12,7 +12,7 @@ _____
 * Stores all orders in local storage
 
 #### Order Management
-* View confirmed orders
+* View confirmed orders 
 * Search orders by Id
 * Update order status between waiting, ready and delivered
 * Automatically sort orders by status (waiting first, delivered last)
