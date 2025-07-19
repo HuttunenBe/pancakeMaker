@@ -9,13 +9,13 @@ A pancake website built as the final project for the JavaScript course at Busine
 _____
 
 ## ✅ Features
-#### Order Menu
+### Order Menu
 * Order form with customisable toppings, extras and delivery options
 * Real time price update based on selected items
 * Order summary preview and confirmation button
 * Stores all orders in local storage
 
-#### Order Management
+### Order Management
 * View confirmed orders 
 * Search orders by Id
 * Update order status between waiting, ready and delivered
